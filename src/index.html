@@ -55,7 +55,7 @@
 
         <section>
           <div class="messages row-lg-12 mt-5">
-              <ul class="list-group">
+              <ul class="chat-container list-group">
                 <li class="list-group-item">An item</li>
                 <li class="list-group-item">A second item</li>
                 <li class="list-group-item">A third item</li>
@@ -63,12 +63,16 @@
                 <li class="list-group-item">And a fifth one</li>
             </ul>
         </div>
-          <div class="message-form">
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label"></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <form>
+          <br>
+          <div > 
+            <div class="form-group">
+              <input type="text" class="form-control" id="message" aria-describedby="chatHelp" placeholder="Message">
+              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </div>
+
+        </form>
         </section>
       </article>
     </article>
