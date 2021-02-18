@@ -14,7 +14,11 @@ export function EventList() {
         let arrayOfEventsHTMLRepresentations = ""
         for(const currentEventInLoop of allTheEvents){
             if(currentEventInLoop.userId === activeUser) {
-            arrayOfEventsHTMLRepresentations += Event(currentEventInLoop)
+                let today = new Date();
+                let date = today.getFullYear() + "-" + 0 + (today.getMonth() + 1) + "-" + today.getDate();
+                if(date <= currentEventInLoop.date) {
+                arrayOfEventsHTMLRepresentations += Event(currentEventInLoop)
+                }
             }
         }
 
