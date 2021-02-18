@@ -1,7 +1,7 @@
 //dataProvider pages run fetch call to gather data with get, psot or save data with post
 
 import { listChats } from "./listChats.js"
-let userName = []
+let users = []
 let chats = []
 export const useChats = () => {
     //returns a copy of array
@@ -16,16 +16,17 @@ export const getChats = () => {
         })
 }
 
-export const getUserName = (userId) => {
-    return fetch(`http://localhost:8088/users/${userId}`)
+export const getUsers = () => {
+    return fetch('http://localhost:8088/users')
         .then(response => response.json())
-        .then(parsedUserName => {
-            let userName = parsedUserName
-            console.log(userName);
+        .then(parsedUsers => {
+            users = parsedUsers
+            console.log(users);
         })
 }
-export const useUserName = () => {
-    return userName.slice
+export const useUsers = () => {
+    console.log(users);
+    return users.slice()
 }
 
 
