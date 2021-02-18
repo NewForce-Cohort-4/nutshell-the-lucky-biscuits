@@ -1,5 +1,5 @@
 import { htmlChat } from './chat.js'
-import { getChats, useChats, saveChat } from './dataProviderChat.js'
+import { getChats, useChats, saveChat, getUserName, useUserName } from './dataProviderChat.js'
 export const listChats = () => {
     //check for current user id
     let activeUser = sessionStorage.getItem('activeUser')
@@ -24,9 +24,34 @@ export const listChats = () => {
 }
 
 // listen for new taks button, draw eentry form when pressed
-document.querySelector('body').addEventListener('click', clickEvent => {
-    if (clickEvent.target.id === 'chat-submit') {
-        console.log("yup");
-        saveChat()
+let eventHub = document.querySelector('body')
+// Handle browser-generated click event in component
+eventHub.addEventListener("click", clickEvent => {
+    
+    if (clickEvent.target.id === "chat-submit") {
+
+        let userName = getUserName(sessionStorage.getItem('activeUser'))
+        //instruct program to wait until dat is returned
+        getUserName(sessionStorage.getItem('activeUser'))
+    //instruct program to wait until dat is returned
+            .then(() => {
+                let userName = useUserName()
+                console.log(userName);
+            })
+        
+        // save a new object representation of a note to sever file
+        let newChat = ''
+        newChat = {
+            // Key/value pairs here
+            chat:document.querySelector("#message").value,
+            userId:sessionStorage.getItem('activeUser'),
+            userName:userName
+            
+        }
+        
+        
+        console.log(newChat);
+        // Change API state and application state
+        saveChat(newChat)
     }
-    })
+})
