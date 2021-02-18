@@ -1,6 +1,6 @@
 import { saveEvent } from "./EventDataProvider.js"
 
-
+// Renders HTML of a button and modal to allow a user to input event name, location, and date
 export const Form = () => {
     const contentTarget = document.querySelector(".event-form")
     contentTarget.innerHTML = `
