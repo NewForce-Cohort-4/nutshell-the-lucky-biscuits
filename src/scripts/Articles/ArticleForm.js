@@ -1,5 +1,14 @@
+//Build form used to create new article objects  and builds object to pass to save function
+
 import {saveArticle} from "./ArticleProvider.js"
 import { articleList } from "./ArticleList.js";
+
+
+//Store today's date//
+let today = new Date();
+let date = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+
+//Listens for share button, builds new object of an article, calls save function//
 document
   .querySelector(".dashboard")
   .addEventListener("click", (clickEvent) => {
@@ -13,13 +22,16 @@ document
         title: newTitle.value,
         url: newUrl.value,
         synopsis: newSynopsis.value,
-        userId : sessionStorage.getItem("activeUser")
+        userId : sessionStorage.getItem("activeUser"),
+        date: date
       };
       // debugger
       saveArticle(newArticle).then(articleList)
     }
   });
 
+
+//Build and print modal for article inputs and button to show modal  
 export const showArticleForm = () => {
   document.querySelector(
     "#articleForm"
@@ -92,7 +104,7 @@ export const showArticleForm = () => {
                     >
                       Close
                     </button>
-                    <button type="button" class="btn btn-primary" id="saveMe" data-bs-dismiss="modal"
+                    <button class="btn btn-primary" id="saveMe" data-bs-dismiss="modal"
                     >Share</button>
                   </div>
                   </div>
