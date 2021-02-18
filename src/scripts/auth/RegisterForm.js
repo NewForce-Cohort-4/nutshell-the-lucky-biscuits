@@ -1,4 +1,4 @@
-import { Nutshell } from "../Nutshell.js";
+import { Nutshell } from "../Nutshell.js"
 
 const contentTarget = document.querySelector(".auth--register");
 const eventHub = document.querySelector(".container");
@@ -47,10 +47,9 @@ eventHub.addEventListener("click", (e) => {
 });
 
 const render = () => {
-  contentTarget.innerHTML += `
+  contentTarget.innerHTML = `
         <section class="register">
-            <input id="register--email" type="text" placeholder="Register with email">
-
+            <input id="register--email" type="text" placeholder="Register with email">​
             <button id="register--button">Register</button>
         </section>
     `;

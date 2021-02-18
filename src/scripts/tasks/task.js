@@ -1,7 +1,6 @@
 export const htmlTask = (task) => {
     
     return `
-        
             <li class="list-group-item" >Task: ${task.task}<br>Complete by: ${task.expCompDate}</il>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="check-complete--${task.id}">
@@ -9,10 +8,6 @@ export const htmlTask = (task) => {
                     Mark Completed
                 </label>
             </div>
-            
-            
-            
-        
     `
 }
 

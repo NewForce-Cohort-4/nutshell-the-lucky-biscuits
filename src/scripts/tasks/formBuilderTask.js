@@ -1,16 +1,11 @@
 import { saveTask, updateStatus } from "./dataProviderTask.js"
 import { listTask } from "./listTask.js"
 
-
-
-
-
 export const newTaskButton = () => {
     let contentTarget = document.querySelector('.tasks')
     contentTarget.innerHTML = `
         <div class="d-flex justify-content-center">
-            
-            <button type="button" width = 100% class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             New Task
             </button>
         </div>
@@ -37,9 +32,7 @@ export const newTaskButton = () => {
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="exp-comp-date">
                                 </div>
-                            </div>
-                  
-                            
+                            </div>       
                         </form>
                     </div> 
                 </div>
@@ -51,15 +44,9 @@ export const newTaskButton = () => {
         </div>
     </div>
     <ul class="tasks-container list-group"></ul>
-
-        
 `
 }
-
-
-
-
-// Handle browser-generated click event in component
+// listen for new taks button, draw eentry form when pressed
 document.querySelector('body').addEventListener('click', clickEvent => {
 if (clickEvent.target.id === 'new-task-btn') {
     taskForm()
@@ -76,7 +63,7 @@ export const taskForm = () => {
             <div class=tasks-container></div>
     `
 }
-
+//listen for save button, send post call if saved, clear dom and rewrite
 let eventHub = document.querySelector('body')
 // Handle browser-generated click event in component
 eventHub.addEventListener("click", clickEvent => {
@@ -91,32 +78,21 @@ eventHub.addEventListener("click", clickEvent => {
             expCompDate:document.querySelector('#exp-comp-date').value,
             userId:sessionStorage.getItem('activeUser'),
             completed:'no'
-            
         }
         console.log('h');
         console.log(newTask);
         // Change API state and application state
         saveTask(newTask)
-        
     }
-    
-
 })
-
 
 // Handle browser-generated click event in component
 eventHub.addEventListener("click", clickEvent => {
-    
+    //when a chckbox is checked, get id and send a patch call to update completion status
     if (clickEvent.target.id.startsWith("check-complete") ) {
         let status = document.getElementById(clickEvent.target.id).checked
-        
         let taskId = clickEvent.target.id.split("--").pop();
         updateStatus(taskId, status)
         listTask()
-       
-
-        
     }
-    
-
 })
