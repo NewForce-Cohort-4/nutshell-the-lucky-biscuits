@@ -3,7 +3,11 @@ import { EventList } from "./EventList.js"
 let events = []
 
 export const useEvents = () => {
-    return events.slice()
+    const sortedByDate = events.sort(
+        (currentEvent, nextEvent) =>
+            Date.parse(currentEvent.date) - Date.parse(nextEvent.date)
+    )
+    return sortedByDate.slice()
 }
 
 // Fetches events array from local API
