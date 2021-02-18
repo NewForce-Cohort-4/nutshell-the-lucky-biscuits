@@ -1,0 +1,33 @@
+The Event List component allows the user to to input an event name, date, and location into a form. When the user saves the new event it appears in the DOM along with all other events.
+
+What files will I need?
+    - Event.js (renders HTML to create a single event card)
+    - EventDataProvider.js (fetch calls to and from API)
+    - EventList.js (prints all event cards to the DOM and prioritizes the next event with bold font and larger card size)
+    - EventForm.js (renders an HTML form to input event information)
+
+What functions and event listners will I need?
+    - Event.js
+        - Event() function to render a single HTML card
+
+    - EventDataProvider.js 
+        - getEvents() and useEvents() for API fetch calls and to allow us to use the data in the database
+        - saveEvent() to save a new event to the database when the user clicks the "save" button
+    
+    - EventList.js
+        - EventList() function to print all the events to the DOM and sort events by date and priortize the next event with bold font and larger card size
+
+    - EventForm.js
+        - Form() to render an HTML for to allow user input
+        - eventListener on the save button of the form
+
+How can I get the next event on the agenda to hvae bold text and a slightly larger size?
+    - Sort the array of events in useEvents
+
+
+What functions will I need to invoke and where?
+
+
+To Do For Tomorrow Thursday 2/17/21:
+    - Sort the list of events in the useEvents function and give the next event on the agenda a bold font with a larger card size
+    - Get new events to save to the database based on the uer that is saving them userById

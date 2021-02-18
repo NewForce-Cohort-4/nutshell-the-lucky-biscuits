@@ -11,12 +11,12 @@ eventHub.addEventListener("click", (e) => {
 
     if (email !== "") {
       // Check to see if the user exists
-      fetch(`http://localhost:8088/users?email=${email}`)
+      fetch(`http://localhost:3000/users?email=${email}`)
         .then((response) => response.json())
         .then((users) => {
           if (users.length === 0) {
             // If not, create them (register them)
-            fetch("http://localhost:8088/users", {
+            fetch("http://localhost:3000/users", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -29,11 +29,9 @@ eventHub.addEventListener("click", (e) => {
               .then((newUser) => {
                 // Once we register them, log them in
                 sessionStorage.setItem("activeUser", newUser.id);
-
                 // clear both forms
                 document.querySelector(".auth--login").innerHTML = "";
                 document.querySelector(".auth--register").innerHTML = "";
-
                 // print the page
                 Nutshell();
               });
@@ -47,10 +45,10 @@ eventHub.addEventListener("click", (e) => {
 });
 
 const render = () => {
-  contentTarget.innerHTML += `
+  contentTarget.innerHTML = `
         <section class="register">
             <input id="register--email" type="text" placeholder="Register with email">
-
+​
             <button id="register--button">Register</button>
         </section>
     `;
