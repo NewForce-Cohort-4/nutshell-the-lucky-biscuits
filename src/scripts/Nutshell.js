@@ -1,3 +1,5 @@
+import { showArticleForm } from "./Articles/ArticleForm.js"
+import { articleList } from "./Articles/ArticleList.js"
 import {LogOutButton} from "./auth/LogoutButton.js"
 import { EventList } from "./event/EventList.js"
 import { Form } from "./event/EventForm.js"
@@ -11,10 +13,11 @@ export const Nutshell = () => {
       // Render all your UI components here
 
     
-    //LogOutButton()
+    LogOutButton()
       // Render all your UI components here
       //console.log(user.id);
-
+  articleList()
+  showArticleForm()
 
 
 

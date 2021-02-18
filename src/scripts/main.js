@@ -21,14 +21,3 @@ if(!activeUser){
     Nutshell()
 }
 
-
-
-
-
-
-
-// import { EventList } from "./event/EventList.js"
-// import { Form } from "./event/EventForm.js"
-
-// Form()
-// EventList()
