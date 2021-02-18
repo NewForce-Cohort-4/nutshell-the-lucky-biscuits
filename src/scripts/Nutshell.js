@@ -1,7 +1,38 @@
 import {LogOutButton} from "./auth/LogoutButton.js"
 
 export const Nutshell = () => {
-
-    LogOutButton()
+    
+    //LogOutButton()
       // Render all your UI components here
-}
+      //console.log(user.id);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      newTaskButton()
+      listTask()
+
+    }
+
+import { newTaskButton } from "./tasks/formBuilderTask.js"
+import { listTask } from './tasks/listTask.js'
