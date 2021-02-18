@@ -1,3 +1,4 @@
+// Renders HTML of a single event card
 export const Event = (eventObject) => {
     return `
         <li class="event-card">

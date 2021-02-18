@@ -1,10 +1,12 @@
+import { EventList } from "./EventList.js"
+
 let events = []
 
 export const useEvents = () => {
     return events.slice()
 }
 
-// Fetches Entries Array from local API
+// Fetches events array from local API
 export const getEvents = () => {
     return fetch('http://localhost:8088/events')
         .then(response => response.json())
@@ -13,7 +15,7 @@ export const getEvents = () => {
         })
 }
 
-// Adds new entry to entries Array on local API 
+// Adds new event to events array on local API 
 export const saveEvent = event => {
     return fetch('http://localhost:8088/events', {
         method: "POST",
@@ -21,7 +23,7 @@ export const saveEvent = event => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(event)
-    })
-    .then(getEvents)
-    // .then(dispatchStateChangeEvent)
+    }).then((getEvents) => {
+        EventList()
+        })
 }

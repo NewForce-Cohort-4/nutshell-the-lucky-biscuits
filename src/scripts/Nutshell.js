@@ -9,7 +9,11 @@ export const Nutshell = () => {
     Form()
     EventList()
       // Render all your UI components here
-}
+
+    
+    //LogOutButton()
+      // Render all your UI components here
+      //console.log(user.id);
 
 
 
@@ -32,3 +36,12 @@ export const Nutshell = () => {
 
 
 
+
+
+      newTaskButton()
+      listTask()
+
+    }
+
+import { newTaskButton } from "./tasks/formBuilderTask.js"
+import { listTask } from './tasks/listTask.js'

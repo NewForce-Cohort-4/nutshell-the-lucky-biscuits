@@ -4,11 +4,11 @@ import { saveEvent } from "./EventDataProvider.js"
 export const Form = () => {
     const contentTarget = document.querySelector(".event-form")
     contentTarget.innerHTML = `
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventModal">
     Add a new event
   </button>
   
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -29,12 +29,6 @@ export const Form = () => {
   </div>`
 }
 
-// export const EventForm = () => {
-//     getMoods().then(() => {
-//         const allTheMoods = useMoods()
-//         Form(allTheMoods)
-//     })
-// }
 
 // Handle browser-generated click event in component
 const eventHub = document.querySelector(".event-form")
@@ -47,11 +41,10 @@ eventHub.addEventListener("click", clickEvent => {
             name: document.querySelector("#event-name").value,
             location: document.querySelector("#event-location").value,
             date: document.querySelector("#event-date").value,
+            userId: sessionStorage.getItem('activeUser')
         }
         
-        console.log("This is a new event", newEvent)
         // Change API state and application state
         saveEvent(newEvent)
-        // .then(EntryList)
     }
 })
