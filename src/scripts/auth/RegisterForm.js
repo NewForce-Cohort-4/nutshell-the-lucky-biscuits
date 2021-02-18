@@ -11,7 +11,7 @@ eventHub.addEventListener("click", (e) => {
 
     if (email !== "") {
       // Check to see if the user exists
-      fetch(`http://localhost:3000/users?email=${email}`)
+      fetch(`http://localhost:8088/users?email=${email}`)
         .then((response) => response.json())
         .then((users) => {
           if (users.length === 0) {

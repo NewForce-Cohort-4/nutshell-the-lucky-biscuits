@@ -10,7 +10,7 @@ eventHub.addEventListener("click", e => {
         const email = document.querySelector("#login__email").value
 
         // Query the databaes for users that have that email
-        return fetch(`http://localhost:3000/users?email=${email}`)
+        return fetch(`http://localhost:8088/users?email=${email}`)
             .then(response => response.json())
             .then(users => {
 
