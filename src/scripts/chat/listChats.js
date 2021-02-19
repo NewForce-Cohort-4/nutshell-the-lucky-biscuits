@@ -20,11 +20,8 @@ export const listChats = () => {
             chats.map(element => {
                 document.querySelector('.chat-container').innerHTML += htmlChat(element)
             })
-                
-            
-                
-               
-            
+            document.getElementById("chat-container").scrollTop = document.getElementById("chat-container").scrollHeight
+    
         }
     })
 }
