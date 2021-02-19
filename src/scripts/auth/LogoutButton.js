@@ -7,6 +7,7 @@ const contentTarget = document.querySelector(".auth--logout")
 export const LogOutButton = () => {
     contentTarget.innerHTML = `<button id="logout-button">Log Out</button>`
 }
+
 eventHub.addEventListener("click", (eventObject) => {
     if(eventObject.target.id === "logout-button"){
         // clear session storage
