@@ -1,0 +1,12 @@
+Given a user is logged in
+When the user is viewing the task component in the DOM
+Then the user should see an affordance to view completed tasks
+
+Given the user has completed one or more tasks
+When the user views their completed tasks
+Then the user should see a checked box next to each completed task
+
+Given the user has completed one or more task
+When the user clicks the checked box next to a completed task
+Then the task should be marked as incomplete and removed from the list of completed tasks
+
