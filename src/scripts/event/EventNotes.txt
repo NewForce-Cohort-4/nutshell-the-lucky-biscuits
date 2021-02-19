@@ -1,0 +1,22 @@
+The Event List component allows the user to to input an event name, date, and location into a form. When the user saves the new event it appears in the DOM along with all other events.
+
+What files will I need?
+    - Event.js (renders HTML to create a single event card)
+    - EventDataProvider.js (fetch calls to and from API)
+    - EventList.js (prints all event cards to the DOM and prioritizes the next event with bold font and larger card size)
+    - EventForm.js (renders an HTML form to input event information)
+
+What functions and event listners will I need?
+    - Event.js
+        - Event() function to render a single HTML card
+
+    - EventDataProvider.js 
+        - getEvents() and useEvents() for API fetch calls and to allow us to use the data in the database
+        - saveEvent() to save a new event to the database when the user clicks the "save" button
+    
+    - EventList.js
+        - EventList() function to print all the events to the DOM and sort events by date and priortize the next event with bold font and larger card size
+
+    - EventForm.js
+        - Form() to render an HTML for to allow user input
+        - eventListener on the save button of the form
