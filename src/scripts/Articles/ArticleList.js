@@ -7,23 +7,31 @@ import {article} from "./Article.js"
 
 //WH - Get articles and pass them to article function that builds list item. Filters based on logged in user//
 
-export const articleList = () => {
+export const articleList = (withTags) => {
   const articleElement = document.querySelector("#articleList");
   getArticles().then(() => {
+    ;
+    let articles
+    let articleString = "";
+    let currentUserId = sessionStorage.getItem("activeUser");
     
-      let articles = useArticles();
-      let articleString = "";
-      let currentUserId = sessionStorage.getItem("activeUser");
-      
-    articles = articles.filter(currentArticle => {
+    if(withTags != null){
+      articles = withTags.filter((currentArticle) => {
       return currentArticle.userId === currentUserId
-    })
-
+      })
+      for (const singleArticle of articles) {
+        articleString += article(singleArticle);
+      } 
+    } else {
+      articles = useArticles();
+      articles = articles.filter((currentArticle) => {
+        return currentArticle.userId === currentUserId;
+      });
       for (const singleArticle of articles) {
         articleString += article(singleArticle);
       }
-      articleElement.innerHTML = 
-    articleString          
+    }
+      articleElement.innerHTML = articleString          
     ;
     
   })
@@ -38,4 +46,7 @@ articleElement.addEventListener("click", (e) => {
     deleteArticle(idToDelete);
     getArticles().then(articleList);
   }
+   
 });
+
+
