@@ -2,31 +2,16 @@
     font-weight: bold;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .event-list {
     height: 25rem;
+}
+
+.messages{
+    height:25rem;
+}
+
+.chat-container{
+    height:100%;
+    margin:0;
+    padding:0;
 }
