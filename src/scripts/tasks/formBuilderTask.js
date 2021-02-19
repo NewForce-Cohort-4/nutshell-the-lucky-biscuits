@@ -1,13 +1,20 @@
 import { saveTask, updateStatus } from "./dataProviderTask.js"
 import { listTask } from "./listTask.js"
-
+let currentState
 export const newTaskButton = () => {
     let contentTarget = document.querySelector('.tasks')
     contentTarget.innerHTML = `
         <div class="d-flex justify-content-center">
             <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             New Task
+            </button>&nbsp
+            <button type="button"  class="btn btn-primary" id='completed'>
+            Completed Tasks
+            </button>&nbsp
+            <button type="button"  class="btn btn-primary" id='active'>
+            Active Tasks
             </button>
+            
         </div>
 
         <!-- Modal -->
@@ -39,6 +46,7 @@ export const newTaskButton = () => {
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" id='save-task' class="save-task"  data-bs-dismiss="modal">Save changes</button>
+                    
                 </div>
             </div>
         </div>
@@ -77,7 +85,7 @@ eventHub.addEventListener("click", clickEvent => {
             task:document.querySelector("#task").value,
             expCompDate:document.querySelector('#exp-comp-date').value,
             userId:sessionStorage.getItem('activeUser'),
-            completed:'no'
+            completed:false
         }
         console.log('h');
         console.log(newTask);
@@ -92,7 +100,24 @@ eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("check-complete") ) {
         let status = document.getElementById(clickEvent.target.id).checked
         let taskId = clickEvent.target.id.split("--").pop();
+        status ? currentState = false : currentState = true;
         updateStatus(taskId, status)
-        listTask()
+
+        listTask(currentState)
     }
 })
+// listen for display completed button, draw completed tasks when pressed
+document.querySelector('body').addEventListener('click', clickEvent => {
+    if (clickEvent.target.id === 'completed') {
+        let currentState = true
+        listTask(currentState)
+    }
+    })
+
+    // listen for display active tasks button, draw active tasks when pressed
+document.querySelector('body').addEventListener('click', clickEvent => {
+    if (clickEvent.target.id === 'active') {
+        let currentState = false
+        listTask(currentState)
+    }
+    })

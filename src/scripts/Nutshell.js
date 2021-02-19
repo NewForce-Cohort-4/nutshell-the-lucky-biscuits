@@ -43,9 +43,10 @@ export const Nutshell = () => {
 
       newTaskButton()
       listTask()
+      //listCompletedTasks()
       listChats()
     }
 import { } from './chat/listChats.js'
 import { newTaskButton } from "./tasks/formBuilderTask.js"
-import { listTask } from './tasks/listTask.js'
+import {  listTask } from './tasks/listTask.js'
 import { listChats } from './chat/listChats.js'
