@@ -14,13 +14,18 @@ export function EventList() {
 
         let arrayOfEventsHTMLRepresentations = ""
         let arrayOfNextEventHTML = ""
+        let stringOfEventMonths = ""
         for(const currentEventInLoop of allTheEvents){
             // If the event in teh loop has a userId that matches the activeUser then run
             if(currentEventInLoop.userId === activeUser) {
-                let today = new Date();
-                let date = today.getFullYear() + "-" + 0 + (today.getMonth() + 1) + "-" + today.getDate();
-                    // If the current event in loop has an index of 0 then return nextEvent with a paramter of the current event in loop
+                let date = new Date(currentEventInLoop.date);
+
+                let month = date.toLocaleString('default', { month: 'long' })
+                console.log(month)
+                    // If the current event in loop has an indmonth: 'ex of 0 then return nextEvent with a paramter of the current event in loop
+                    currentEventInLoop.date.split()
                     if(currentEventInLoop === allTheEvents[0]){
+    
                         arrayOfNextEventHTML += nextEvent(currentEventInLoop)
                     // If the current event in loop is not at index 0 then run this
                     } else {
