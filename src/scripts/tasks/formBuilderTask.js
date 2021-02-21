@@ -2,9 +2,9 @@ import { saveTask, updateStatus } from "./dataProviderTask.js"
 import { listTask } from "./listTask.js"
 let currentState
 export const newTaskButton = () => {
-    let contentTarget = document.querySelector('.tasks')
+    let contentTarget = document.querySelector('.task-form')
     contentTarget.innerHTML = `
-        <div class="d-flex justify-content-center">
+        
             <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             New Task
             </button>&nbsp
@@ -15,7 +15,7 @@ export const newTaskButton = () => {
             Active Tasks
             </button>
             
-        </div>
+        
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -37,7 +37,7 @@ export const newTaskButton = () => {
                             <div class="form-group">
                                 <label for="exp-comp-date" class="col-sm-2 control-label">Target Completion</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="exp-comp-date">
+                                    <input type="date" class="form-control" id="exp-comp-date">
                                 </div>
                             </div>       
                         </form>
@@ -51,7 +51,7 @@ export const newTaskButton = () => {
             </div>
         </div>
     </div>
-    <ul class="tasks-container list-group"></ul>
+    
 `
 }
 // listen for new taks button, draw eentry form when pressed
@@ -61,14 +61,14 @@ if (clickEvent.target.id === 'new-task-btn') {
 }
 })
 export const taskForm = () => {
-        let contentTarget = document.querySelector('.tasks')
+        let contentTarget = document.querySelector('.tasks-form')
         contentTarget.innerHTML = `
             <label for='task'>Task</label>
             <input type="text" name='task' id="task">
             <label for='exp-comp-date'>Exp Comp Date</label>
             <input type="text" name='exp-comp-date' id="exp-comp-date">
             <button type='button' id="save-task">Save Task</button>
-            <div class=tasks-container></div>
+            
     `
 }
 //listen for save button, send post call if saved, clear dom and rewrite
@@ -83,7 +83,7 @@ eventHub.addEventListener("click", clickEvent => {
         newTask = {
             // Key/value pairs here
             task:document.querySelector("#task").value,
-            expCompDate:document.querySelector('#exp-comp-date').value,
+            expCompDate:document.querySelector('#exp-comp-date'),
             userId:sessionStorage.getItem('activeUser'),
             completed:false
         }
@@ -91,6 +91,7 @@ eventHub.addEventListener("click", clickEvent => {
         console.log(newTask);
         // Change API state and application state
         saveTask(newTask)
+        listTask(false)
     }
 })
 

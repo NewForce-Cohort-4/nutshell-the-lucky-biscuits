@@ -42,7 +42,7 @@ export const Nutshell = () => {
 
 
       newTaskButton()
-      listTask()
+      listTask(false)
       //listCompletedTasks()
       listChats()
     }

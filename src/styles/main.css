@@ -6,12 +6,18 @@
     height: 25rem;
 }
 
-.messages{
+.chat-container{
     height:25rem;
 }
 
-.chat-container{
-    height:100%;
-    margin:0;
-    padding:0;
+.tasks-container{
+    height: 25rem;
 }
+.chatdark{
+    background-color: rgb(218, 228, 238);
+}
+.chatlight{
+    background-color: rgb(223, 221, 221);
+}
+
+ 

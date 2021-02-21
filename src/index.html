@@ -28,15 +28,10 @@
             <div class="event-form"></div>
             <div class="event-list overflow-auto"></div>
           </div>
-          <div class="tasks col-sm-4">
-            <ul class="tasks-container list-group">
-              <li class="list-group-item">An item</li>
-              <li class="list-group-item">A second item</li>
-              <li class="list-group-item">A third item</li>
-              <li class="list-group-item">A fourth item</li>
-              <li class="list-group-item">And a fifth one</li>
-            </ul>
-          </div>
+            <div class="tasks col-sm-4">
+              <div class="task-form d-flex justify-content-around"></div>
+              <div class="tasks-container overflow-auto border"></div>
+            </div>
           <div class="articles col-sm-4">
             <div id="articleForm"></div>
             <ul id="articleList" class="list-group"></ul>
@@ -44,19 +39,15 @@
         </section>
 
         <section>
-          <div class="messages row-lg-12 mt-5 border " id='msgs'>
-              <div class="chat-container overflow-auto" id='chat-container'>
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A fourth item</li>
-                <li class="list-group-item">And a fifth one</li>
+          <div class="messages row-lg-12 mt-5 border  " id='msgs'>
+              <div class="chat-container overflow-auto " id='chat-container'>
+                
               </div>
         </div>
         <div>
           <br>
           <div > 
-            <div class="form-group">
+            <div class="form-group d-flex justify-content-around">
               <input type="text" class="form-control" id="message" aria-describedby="chatHelp" placeholder="Message" width="80%">
               <button type="submit" id='chat-submit' class="btn btn-primary">Submit</button>
             </div>
