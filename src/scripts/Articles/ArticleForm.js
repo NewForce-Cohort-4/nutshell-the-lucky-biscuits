@@ -62,22 +62,24 @@ const saveAll = (newArticle, newTags) => {
               saveTags(singleTagObject)
                 .then((r) => r.json())
                 .then((currentTag) => {
-                  newTagObject = currentTag;
-                  tagIdToSave = newTagObject.id;
+                  console.log(currentTag)
+                  tagIdToSave = currentTag.id;
+                  let newArticleTag = {
+                    articleId: newArticleObject.id,
+                    tagId: tagIdToSave,
+                  };
+                  saveArticleTags(newArticleTag);
                 });
             } else {
               // if it DOES exist in the database, we need to grab its id and save a new entry to the join table
 
               tagIdToSave = matchingTags[0].id;
-            
+              let newArticleTag = {
+                articleId: newArticleObject.id,
+                tagId: tagIdToSave,
+              };
+              saveArticleTags(newArticleTag);
             }
-
-            // build a join table object and post it
-            let newArticleTag = {
-              articleId: newArticleObject.id,
-              tagId: tagIdToSave,
-            };
-            saveArticleTags(newArticleTag);
           });
       }
     });
@@ -113,6 +115,11 @@ export const buildTag = (newTag) => {
       return newTagObject;
     });
 };
+
+document.querySelector("body").addEventListener("click", (e) => {
+  if (e.target.id === "view-all-articles"){
+    articleList()
+  }})
 
 //Build and print modal for article inputs and button to show modal
 export const showArticleForm = () => {

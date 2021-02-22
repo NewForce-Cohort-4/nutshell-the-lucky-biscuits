@@ -1,11 +1,14 @@
 //WH - Build list item for each article//
 
-export const article = (article) => {
+import { getArticles, useArticleTags, useTags, getArticleTags, getTags } from "./ArticleProvider.js";
+
+//Accepts single article object and am HTML string for tags
+export const article = (article, tagString) => {
   return `
   <li class="list-group-item text-center">
     <div class="list-group list-group-horizontal-sm text-center">
     <h3>${article.title}</h3>
-    <small class="text-muted ms-5">${buildTags(article)}</small>
+    ${tagString}
     </div>
     <p>${article.url}</p>
     <p>${article.synopsis}</p>
@@ -16,15 +19,3 @@ export const article = (article) => {
   `;
 }
 
-const buildTags = (article) => {
-  let tagArray = article.tags.split(",")
-  let tagString = ""
-  tagArray.forEach(tag => {
-    tagString += `<a href="#" id="tag-link-${tag}" class="tag-link">${tag}</a> `
-  });
-  return tagString
-}
-
-//<div class="list-group list-group-horizontal-sm text-center"></div>
-//<small class="text-muted"><a href="" id="article-tags-${articleid}></a></small>
-   // </div>

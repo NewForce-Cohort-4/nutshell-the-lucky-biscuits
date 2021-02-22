@@ -67,17 +67,7 @@ export const getSingleArticle = (articleId) => {
     });
 };
 
-export let tagObject = {}
 
-
-
-export const getSingleTag = (tagId) => {
-  return fetch(`http://localhost:8088/tags/${tagId}`)
-    .then((r) => r.json())
-    .then((parsedTag) => {
-      tagObject = parsedTag;
-    });
-};
 
 let tags = []
 export const useTags = () => tags.slice()
@@ -89,3 +79,25 @@ export const getTags = () => {
       tags= parsedTag;
     });
 }
+
+let articleTags = [];
+export const useArticleTags = () => articleTags.slice();
+
+export const getArticleTags = () => {
+  return fetch(`http://localhost:8088/articleTags`)
+    .then((r) => r.json())
+    .then((parsedArticleTags) => {
+      articleTags = parsedArticleTags;
+    });
+};
+
+export let tagObject = [];
+export const useSingleTag = () => tag.slice();
+
+export const getSingleTag = (tagId) => {
+  return fetch(`http://localhost:8088/tags/${tagId}`)
+    .then((r) => r.json())
+    .then((parsedTag) => {
+      tag = parsedTag;
+    });
+};
