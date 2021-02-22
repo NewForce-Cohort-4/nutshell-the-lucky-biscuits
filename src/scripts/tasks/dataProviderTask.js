@@ -25,7 +25,7 @@ export const saveTask = task => {
         body: JSON.stringify(task)
         
     }).then(() => {
-    listTask()
+    listTask(false)
     })
 }
 

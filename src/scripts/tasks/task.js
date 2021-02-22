@@ -1,13 +1,18 @@
 export const htmlTask = (task) => {
     
     return `
-            <li class="list-group-item" >Task: ${task.task}<br>Complete by: ${task.expCompDate}</il>
+        
+            <div class="task-card card p-2" ><h3>Task: ${task.task}</h3><br>
+            <h5>Complete by: ${task.expCompDate}</h5>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="check-complete--${task.id}">
+                <input class="form-check-input" ${task.completed == true ? "checked" : 'notcdafc'} type="checkbox" value="" id="check-complete--${task.id}">
                 <label class="form-check-label" for="flexCheckDefault">
-                    Mark Completed
+                    <h5>Check Completed</h5>
                 </label>
             </div>
+        </div>
     `
 }
+
+
 
