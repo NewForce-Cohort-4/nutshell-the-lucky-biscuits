@@ -13,21 +13,14 @@ export const useEvents = () => {
     const upcomingEvents = sortedByDate.filter(currentEvent => {
         return Date.parse(currentEvent.date) >= Date.now()
     })
-
-    // for(const event of events){
-    //     const dateSplit = event.date.split('-')
-    //     let year = dateSplit[0]
-    //     let month = dateSplit[1]
-    //     let day = dateSplit[2]
-    //     console.log(day, month, year)    
-    // }
     
-        return upcomingEvents
+    return upcomingEvents
 }
 
 // Fetches events array from local API
 export const getEvents = () => {
-    return fetch('http://localhost:8088/events')
+    const activeUser = sessionStorage.getItem('activeUser')
+    return fetch(`http://localhost:8088/events?userId=${activeUser}`)
         .then(response => response.json())
         .then(parsedEvents => {
             events = parsedEvents

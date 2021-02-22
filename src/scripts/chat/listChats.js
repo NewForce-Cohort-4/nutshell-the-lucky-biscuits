@@ -18,7 +18,7 @@ export const listChats = () => {
             document.querySelector('.chat-container').innerHTML = ' '
             
             chats.map(element => {
-                document.querySelector('.chat-container').innerHTML += htmlChat(element)
+                document.querySelector('.chat-container').innerHTML += htmlChat(element, activeUser)
             })
             document.getElementById("chat-container").scrollTop = document.getElementById("chat-container").scrollHeight
     

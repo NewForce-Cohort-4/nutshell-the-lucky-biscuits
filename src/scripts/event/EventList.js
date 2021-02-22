@@ -1,7 +1,7 @@
 import { Event, nextEvent } from "./Event.js";
 import { getEvents, useEvents} from "./EventDataProvider.js";
 
-
+let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
 
 // List function to print the appropriate event objects to the DOM
@@ -9,37 +9,47 @@ export function EventList() {
     getEvents().then(() => {
         let allTheEvents = useEvents()
 
-        let activeUser = sessionStorage.getItem('activeUser')
         const contentTarget = document.querySelector(".event-list")
 
         let arrayOfEventsHTMLRepresentations = ""
         let arrayOfNextEventHTML = ""
-        for(const currentEventInLoop of allTheEvents){
-            // If the event in teh loop has a userId that matches the activeUser then run
-            if(currentEventInLoop.userId === activeUser) {
-                let date = new Date(currentEventInLoop.date);
 
-                let month = date.toLocaleString('default', { month: 'long' })
-                console.log(month)
+        let printNextEvent = false
 
-                    // If the current event in loop has an indmonth: 'ex of 0 then return nextEvent with a paramter of the current event in loop
-                    currentEventInLoop.date.split()
-                    if(currentEventInLoop === allTheEvents[0]){
-    
-                        arrayOfNextEventHTML += nextEvent(currentEventInLoop)
-                    // If the current event in loop is not at index 0 then run this
-                    } else if (month === "February") {
-                        arrayOfEventsHTMLRepresentations += Event(currentEventInLoop)
-                    }                
-                
-            }
+        for(let month = 0; month < months.length; month++){
+            let monthlyEvents = []
+
+                    // Filters the array of monthlyEvents
+                    monthlyEvents = allTheEvents.filter(x => {
+                        return new Date(x.date).getMonth() === month  
+                    })
+                        // If there are no events in the monthlyEvents then jump over one iteration in the loop
+                        if(monthlyEvents.length === 0){
+                            
+                            continue
+
+                        // Prints the next event 
+                        } else if(monthlyEvents.length > 0 && printNextEvent === false) {
+                            arrayOfEventsHTMLRepresentations += `<h5>${months[month]}<h5>`
+                            arrayOfEventsHTMLRepresentations += nextEvent(monthlyEvents[0])
+
+                            // Prints the other 
+                            for(let i = 1; i < monthlyEvents.length; i++){
+                                
+                                arrayOfEventsHTMLRepresentations += Event(event)
+                            }
+                            printNextEvent = true
+                        } else {
+                            arrayOfEventsHTMLRepresentations += `<h5>${months[month]}<h5>`
+                            for(const event of monthlyEvents){
+                                
+                                arrayOfEventsHTMLRepresentations += Event(event)
+                            }
+                        }              
         }
-        const stringOfCurrentEvents = arrayOfNextEventHTML
-        const stringOfAllRepresentations = arrayOfEventsHTMLRepresentations
-
-        contentTarget.innerHTML = ``
-        contentTarget.innerHTML = `<h2>Next Event:</h2>${stringOfCurrentEvents}${stringOfAllRepresentations}`
-
-
+            const stringOfCurrentEvents = arrayOfNextEventHTML
+            const stringOfAllRepresentations = arrayOfEventsHTMLRepresentations
+            
+            contentTarget.innerHTML = `${stringOfCurrentEvents}${stringOfAllRepresentations}`
     })
 } 
