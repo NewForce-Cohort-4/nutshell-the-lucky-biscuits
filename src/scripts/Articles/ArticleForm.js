@@ -52,7 +52,7 @@ const saveAll = (newArticle, newTags) => {
         fetch(`http://localhost:8088/tags?q=${newTags[i]}`)
           .then((r) => r.json())
           .then((matchingTags) => {
-            
+             
             if (matchingTags.length === 0) {
               // if not, we need to add the tag and THEN add a new entry to the join table
               let singleTagObject = {
