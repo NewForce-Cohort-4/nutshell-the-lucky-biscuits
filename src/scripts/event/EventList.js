@@ -14,7 +14,6 @@ export function EventList() {
 
         let arrayOfEventsHTMLRepresentations = ""
         let arrayOfNextEventHTML = ""
-        let stringOfEventMonths = ""
         for(const currentEventInLoop of allTheEvents){
             // If the event in teh loop has a userId that matches the activeUser then run
             if(currentEventInLoop.userId === activeUser) {
@@ -22,13 +21,14 @@ export function EventList() {
 
                 let month = date.toLocaleString('default', { month: 'long' })
                 console.log(month)
+
                     // If the current event in loop has an indmonth: 'ex of 0 then return nextEvent with a paramter of the current event in loop
                     currentEventInLoop.date.split()
                     if(currentEventInLoop === allTheEvents[0]){
     
                         arrayOfNextEventHTML += nextEvent(currentEventInLoop)
                     // If the current event in loop is not at index 0 then run this
-                    } else {
+                    } else if (month === "February") {
                         arrayOfEventsHTMLRepresentations += Event(currentEventInLoop)
                     }                
                 
@@ -38,7 +38,7 @@ export function EventList() {
         const stringOfAllRepresentations = arrayOfEventsHTMLRepresentations
 
         contentTarget.innerHTML = ``
-        contentTarget.innerHTML = `${stringOfCurrentEvents}${stringOfAllRepresentations}`
+        contentTarget.innerHTML = `<h2>Next Event:</h2>${stringOfCurrentEvents}${stringOfAllRepresentations}`
 
 
     })
