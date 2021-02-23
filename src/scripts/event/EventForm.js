@@ -35,6 +35,7 @@ const eventHub = document.querySelector(".event-form")
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveEvent") {
+         
         console.log("You clicked the save event button")
         // Make a new object representation of a note
         const newEvent = {

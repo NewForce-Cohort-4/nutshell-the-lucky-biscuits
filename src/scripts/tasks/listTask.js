@@ -13,8 +13,6 @@ export const listTask = (currentState) => {
         // taks dont exsist, say so
         const tasks = useTasks()
             //if there are tasks, iterate through them and print all that are created by current user and not marked comleted
-            console.log(tasks.length);
-            console.log(tasks);
             let done = 0
             
             for(let i = 0; i < tasks.length; i++) {

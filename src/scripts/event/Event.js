@@ -1,5 +1,6 @@
 // Renders HTML of a single event card
 export const Event = (eventObject) => {
+
                 return `
                 <div class="event-card card p-2">
                     <h3 class="event__name">${ eventObject.name }</h3>
