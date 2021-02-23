@@ -27,4 +27,12 @@
 #login__button, #register--button{
     width: 6em;
 }
+ 
+.article-container {
+    height:25rem;
+}
+
+#article-list {
+    height: 100%;
+}
 
