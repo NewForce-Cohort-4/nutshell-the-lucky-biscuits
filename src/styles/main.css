@@ -23,3 +23,8 @@
 .tags {
     margin: 0 1px;
 }
+
+#login__button, #register--button{
+    width: 6em;
+}
+

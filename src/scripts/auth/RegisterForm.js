@@ -48,7 +48,7 @@ const render = () => {
   contentTarget.innerHTML = `
         <section class="register">
             <input id="register--email" type="text" placeholder="Register with email">​
-            <button id="register--button">Register</button>
+            <button id="register--button" class="btn btn-primary">Register</button>
         </section>
     `;
 };

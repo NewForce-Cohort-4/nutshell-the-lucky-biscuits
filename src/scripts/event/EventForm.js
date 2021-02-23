@@ -4,9 +4,11 @@ import { saveEvent } from "./EventDataProvider.js"
 export const Form = () => {
     const contentTarget = document.querySelector(".event-form")
     contentTarget.innerHTML = `
+    <div class="d-grid gap-2">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventModal">
     Add a new event
-  </button>
+    </button>
+    </div>
   
   <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
