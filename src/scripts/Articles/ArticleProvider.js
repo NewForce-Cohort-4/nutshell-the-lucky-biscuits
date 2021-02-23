@@ -36,3 +36,68 @@ export const deleteArticle = (articleId) => {
     method: "DELETE",
   });
 };
+
+export const saveTags = (tag) => {
+  return fetch("http://localhost:8088/tags", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(tag),
+  }); 
+}
+
+export const saveArticleTags = (articleTag) => {
+  return fetch("http://localhost:8088/articleTags", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(articleTag),
+  });
+};
+
+export let articleObject = {}
+
+export const getSingleArticle = (articleId) => {
+  return fetch(`http://localhost:8088/articles/${articleId}`)
+    .then((r) => r.json())
+    .then((parsedArticle) => {
+      articleObject = parsedArticle;
+    });
+};
+
+
+
+let tags = []
+export const useTags = () => tags.slice()
+
+export const getTags = () => {
+  return fetch(`http://localhost:8088/tags`)
+    .then((r) => r.json())
+    .then((parsedTag) => {
+      tags= parsedTag;
+    });
+}
+
+let articleTags = [];
+export const useArticleTags = () => articleTags.slice();
+
+export const getArticleTags = () => {
+  return fetch(`http://localhost:8088/articleTags`)
+    .then((r) => r.json())
+    .then((parsedArticleTags) => {
+      articleTags = parsedArticleTags;
+    });
+};
+
+export let tagObject = [];
+export const useSingleTag = () => tag.slice();
+
+export const getSingleTag = (tagId) => {
+  return fetch(`http://localhost:8088/tags/${tagId}`)
+    .then((r) => r.json())
+    .then((parsedTag) => {
+      tag = parsedTag;
+    });
+};
