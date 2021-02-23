@@ -23,3 +23,12 @@
 .tags {
     margin: 0 1px;
 }
+
+.article-container {
+    height:25rem;
+}
+
+#article-list {
+    height: 100%;
+}
+
