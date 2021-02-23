@@ -21,9 +21,13 @@
 }
 
 .tags {
-    margin: 0 1px;
+    margin: 0 8px;
 }
 
+#login__button, #register--button{
+    width: 6em;
+}
+ 
 .article-container {
     height:25rem;
 }
@@ -32,3 +36,12 @@
     height: 100%;
 }
 
+.btn-primary {
+    color: black;
+    background-color: lightblue;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}

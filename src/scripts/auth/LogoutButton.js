@@ -5,7 +5,7 @@ const eventHub = document.querySelector(".auth--logout")
 const contentTarget = document.querySelector(".auth--logout")
 
 export const LogOutButton = () => {
-    contentTarget.innerHTML = `<button id="logout-button">Log Out</button>`
+    contentTarget.innerHTML = `<button id="logout-button" class="btn btn-secondary mb-4">Log Out</button>`
 }
 
 eventHub.addEventListener("click", (eventObject) => {
