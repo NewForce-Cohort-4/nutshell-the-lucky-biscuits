@@ -32,7 +32,8 @@ document.querySelector(".dashboard").addEventListener("click", (clickEvent) => {
       userId: sessionStorage.getItem("activeUser"),
       date: date,
     };
-    saveAll(newArticle, newTags.value.split(","));
+    saveAll(newArticle, newTags.value.split(","))
+    articleList()
   }
 });
 
@@ -56,19 +57,20 @@ const saveAll = (newArticle, newTags) => {
             if (matchingTags.length === 0) {
               // if not, we need to add the tag and THEN add a new entry to the join table
               let singleTagObject = {
-                tag: newTags[i],
+                tag: newTags[i].toLowerCase(),
               };
               
               saveTags(singleTagObject)
                 .then((r) => r.json())
                 .then((currentTag) => {
-                  console.log(currentTag)
+                  
                   tagIdToSave = currentTag.id;
                   let newArticleTag = {
                     articleId: newArticleObject.id,
                     tagId: tagIdToSave,
                   };
-                  saveArticleTags(newArticleTag);
+                  saveArticleTags(newArticleTag)
+                  .then(articleList())
                 });
             } else {
               // if it DOES exist in the database, we need to grab its id and save a new entry to the join table
@@ -78,7 +80,8 @@ const saveAll = (newArticle, newTags) => {
                 articleId: newArticleObject.id,
                 tagId: tagIdToSave,
               };
-              saveArticleTags(newArticleTag);
+              saveArticleTags(newArticleTag)
+              .then(articleList())
             }
           });
       }
