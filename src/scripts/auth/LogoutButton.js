@@ -17,8 +17,8 @@ eventHub.addEventListener("click", (eventObject) => {
 
         // This will clear the logout button from the DOM-- you'd just have to do this individually for any other containers you add
         contentTarget.innerHTML = ""
-
-
+        document.querySelector(".dashboard").innerHTML = ""
+        
         // Reprint the login and register form
         LoginForm()
         RegisterForm()

@@ -214,5 +214,12 @@ export const showArticleForm = () => {
                 </div>
               </div>
                
-            </div>`;
+            </div>`
+            
+          document.querySelector("#show-articles-div").innerHTML = `<button
+                class="btn btn-primary"
+                type="button" id="view-all-articles"
+              >
+                View All Articles
+              </button>`;
 };
