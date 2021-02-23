@@ -30,7 +30,7 @@ export function EventList() {
 
                         // Prints the next event 
                         } else if(monthlyEvents.length > 0 && printNextEvent === false) {
-                            arrayOfEventsHTMLRepresentations += `<h5>${months[month]}<h5><p>(${months[month].length})</p>`
+                            arrayOfEventsHTMLRepresentations += `<h5>${months[month]}<h5><p>(${monthlyEvents.length})</p>`
                             arrayOfEventsHTMLRepresentations += nextEvent(monthlyEvents[0])
 
                             // Prints the other 
@@ -40,7 +40,7 @@ export function EventList() {
                             }
                             printNextEvent = true
                         } else {
-                            arrayOfEventsHTMLRepresentations += `<h5>${months[month]}<h5><p>(${months[month].length})</p>`
+                            arrayOfEventsHTMLRepresentations += `<h5>${months[month]}<h5><p>(${monthlyEvents.length})</p>`
                             for(const event of monthlyEvents){
                                 
                                 arrayOfEventsHTMLRepresentations += Event(event)
