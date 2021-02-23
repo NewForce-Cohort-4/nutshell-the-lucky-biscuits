@@ -34,7 +34,7 @@ export function EventList() {
                             // Loops through the array of events sorted by month and prints the current events for that month
                             for(let i = 1; i < monthlyEvents.length; i++){
                                 
-                                arrayOfEventsHTMLRepresentations += Event([monthlyEvents[i]])
+                                arrayOfEventsHTMLRepresentations += Event(monthlyEvents[i])
                             }
                             printNextEvent = true
                         } else {
