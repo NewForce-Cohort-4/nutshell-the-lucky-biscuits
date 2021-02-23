@@ -25,14 +25,13 @@ export function EventList() {
                     })
                         // If there are no events in the monthlyEvents then jump over one iteration in the loop
                         if(monthlyEvents.length === 0){
-                            
                             continue
 
-                        // Prints the next event 
                         } else if(monthlyEvents.length > 0 && printNextEvent === false) {
+                            // Prints the event that is occuring next in bold
                             arrayOfEventsHTMLRepresentations += nextEvent(monthlyEvents[0])
 
-                            
+                            // Loops through the array of events sorted by month and prints the current events for that month
                             for(let i = 1; i < monthlyEvents.length; i++){
                                 
                                 arrayOfEventsHTMLRepresentations += Event([monthlyEvents[i]])
