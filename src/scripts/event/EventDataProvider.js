@@ -19,7 +19,7 @@ export const useEvents = () => {
 
 // Fetches events array from local API
 export const getEvents = () => {
-    const activeUser = sessionStorage.getItem('activeUser')
+    let activeUser = sessionStorage.getItem('activeUser')
     return fetch(`http://localhost:8088/events?userId=${activeUser}`)
         .then(response => response.json())
         .then(parsedEvents => {
@@ -29,7 +29,8 @@ export const getEvents = () => {
 
 // Adds new event to events array on local API 
 export const saveEvent = event => {
-    return fetch('http://localhost:8088/events', {
+    let activeUser = sessionStorage.getItem('activeUser')
+    return fetch(`http://localhost:8088/events?userId=${activeUser}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
