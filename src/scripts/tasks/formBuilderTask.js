@@ -83,7 +83,7 @@ eventHub.addEventListener("click", clickEvent => {
         newTask = {
             // Key/value pairs here
             task:document.querySelector("#task").value,
-            expCompDate:document.querySelector('#exp-comp-date'),
+            expCompDate:document.querySelector('#exp-comp-date').value,
             userId:sessionStorage.getItem('activeUser'),
             completed:false
         }
